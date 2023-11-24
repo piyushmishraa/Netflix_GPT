@@ -1,11 +1,10 @@
+import Body from './components/Body';
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-     <p>waddup</p>
-    </div>
+    <Body/>
+    
   );
 }
 
