@@ -11,6 +11,7 @@ const Login = () => {
   const [isSignInForm,setIsSignInForm]=useState(true);
   const email=useRef(null);
   const password=useRef(null);
+  const name=useRef(null);
 
   const handleClick=()=>{
   const message=checkValidForm(email.current.value,password.current.value);
@@ -29,7 +30,7 @@ const Login = () => {
        </div>
        <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black p-12 w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-md'>
         <h1 className='font-bold text-3xl py-4'>{isSignInForm?"Sign In":"Sign Up"}</h1>
-        {!isSignInForm && <input type='text' placeholder='Name'className='bg-gray-800 p-2 my-2 w-full  text-xs' /> }
+        {!isSignInForm && <input ref={name} type='text' placeholder='Name'className='bg-gray-800 p-2 my-2 w-full  text-xs' /> }
         <input ref={email} type='text' placeholder='Email Address'className='bg-gray-800 p-2 my-2 w-full text-xs ' />
         <input ref={password} type="password" placeholder="Password" className='bg-gray-800 p-2 my-2 w-full text-xs' />
         <button className=' bg-red-700 my-4 w-full p-2' onClick={handleClick}> Sign In</button>
