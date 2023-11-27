@@ -9,14 +9,21 @@ const Login = () => {
 
   const [errMessage,setErrMessage]=useState(null)
   const [isSignInForm,setIsSignInForm]=useState(true);
-  const email=useRef(null);
-  const password=useRef(null);
   const name=useRef(null);
+  const email=useRef(null);
+  const password=useRef(name);
+ 
 
   const handleClick=()=>{
-  const message=checkValidForm(email.current.value,password.current.value);
-  console.log(message);
-  setErrMessage(message);
+    if(!isSignInForm){
+      const message=checkValidForm(email.current.value,password.current.value,name.current.value);
+      console.log(message);
+      setErrMessage(message);
+    }else{
+      const message=checkValidForm(email.current.value,password.current.value);
+      setErrMessage(message);
+    }
+  
   }
   const signInToggle=()=>{
   setIsSignInForm(!isSignInForm);
@@ -33,9 +40,9 @@ const Login = () => {
         {!isSignInForm && <input ref={name} type='text' placeholder='Name'className='bg-gray-800 p-2 my-2 w-full  text-xs' /> }
         <input ref={email} type='text' placeholder='Email Address'className='bg-gray-800 p-2 my-2 w-full text-xs ' />
         <input ref={password} type="password" placeholder="Password" className='bg-gray-800 p-2 my-2 w-full text-xs' />
-        <button className=' bg-red-700 my-4 w-full p-2' onClick={handleClick}> Sign In</button>
+        <button className=' bg-red-700 my-4 w-full p-2 rounded-md' onClick={handleClick}> Sign In</button>
         <p className='text-xs text-red-500 font-bold py-2'>{errMessage}</p>
-        <p className=' text-xs cursor-pointer' onClick={signInToggle}  >{isSignInForm?"New to Netflix? Sign Up":"Already registered"}</p>
+        <p className=' text-xs/[17px] cursor-pointer' onClick={signInToggle}  >{isSignInForm?"New to Netflix? Sign Up":"Already registered"}</p>
        </form>
           
     </div>
