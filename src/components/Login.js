@@ -15,14 +15,19 @@ const Login = () => {
  
 
   const handleClick=()=>{
-    if(!isSignInForm){
-      const message=checkValidForm(email.current.value,password.current.value,name.current.value);
-      console.log(message);
-      setErrMessage(message);
-    }else{
-      const message=checkValidForm(email.current.value,password.current.value);
-      setErrMessage(message);
-    }
+    
+    // if(!isSignInForm){
+    //   const message=checkValidForm(email.current.value,password.current.value,name.current.value);
+    //   setErrMessage(message);
+    // }else{
+    //   const message=checkValidForm(email.current.value,password.current.value);
+    //   setErrMessage(message);
+   
+    //}
+    const message=checkValidForm(email.current.value,password.current.value);
+    setErrMessage(message)
+    
+   
   
   }
   const signInToggle=()=>{
