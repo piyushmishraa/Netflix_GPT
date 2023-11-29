@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidForm } from '../utils/checkValidForm'
 import { auth } from '../utils/firebase'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
 
 
 
@@ -48,6 +48,19 @@ const Login = () => {
   });
     }else{
       //sign in logic
+      
+     signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+     .then((userCredential) => {
+     // Signed in 
+     const user = userCredential.user;
+     console.log(user);
+      // ...
+      })
+     .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrMessage(errorCode+errorMessage);
+      });
     }
    
   
@@ -67,7 +80,7 @@ const Login = () => {
         {!isSignInForm && <input ref={name} type='text' placeholder='Name'className='bg-gray-800 p-2 my-2 w-full  text-xs' /> }
         <input ref={email} type='text' placeholder='Email Address'className='bg-gray-800 p-2 my-2 w-full text-xs ' />
         <input ref={password} type="password" placeholder="Password" className='bg-gray-800 p-2 my-2 w-full text-xs' />
-        <button className=' bg-red-700 my-4 w-full p-2 rounded-md' onClick={handleClick}> Sign In</button>
+        <button className=' bg-red-700 my-4 w-full p-2 rounded-md' onClick={handleClick}> {!isSignInForm?("Sign Up"):("Sign In")}</button>
         <p className='text-xs text-red-500 font-bold py-2'>{errMessage}</p>
         <p className=' text-xs/[17px] cursor-pointer' onClick={signInToggle}  >{isSignInForm?"New to Netflix? Sign Up":"Already registered"}</p>
        </form>
