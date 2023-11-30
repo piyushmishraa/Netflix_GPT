@@ -3,12 +3,13 @@ import Header from './Header'
 import { checkValidForm } from '../utils/checkValidForm'
 import { auth } from '../utils/firebase'
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
 
-
+  const navigate=useNavigate();
   const [errMessage,setErrMessage]=useState(null)
   const [isSignInForm,setIsSignInForm]=useState(true);
   const name=useRef(null);
@@ -26,35 +27,35 @@ const Login = () => {
     //   setErrMessage(message);
    
     //}
+    
     const message=checkValidForm(email.current.value,password.current.value);
     setErrMessage(message)
     
-    if(!isSignInForm){
+      if(!isSignInForm){
       //sign up logic
       createUserWithEmailAndPassword(auth, email.current.value , password.current.value)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    console.log(user);
+      .then((userCredential) => {
+       const user = userCredential.user;
+       console.log(user);
+       navigate("/browse");
 
 
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setErrMessage(errorCode+'-'+ errorMessage )
-    // ..
-  });
+    
+      })
+      .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrMessage(errorCode+'-'+ errorMessage )
+    
+       });
     }else{
       //sign in logic
       
      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
      .then((userCredential) => {
-     // Signed in 
      const user = userCredential.user;
      console.log(user);
-      // ...
+     navigate("/browse");
       })
      .catch((error) => {
       const errorCode = error.code;
