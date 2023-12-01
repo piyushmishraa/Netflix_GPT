@@ -1,4 +1,4 @@
-
+/* eslint-disable*/
 import { getAuth } from "firebase/auth";
 // Import the functions you need from the SDKs you need
 // Import the functions you need from the SDKs you need
