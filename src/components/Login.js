@@ -90,9 +90,9 @@ const Login = () => {
 
   }
   return (
-    <div>
+    <div className=' '>
        <Header/>
-       <div className='absolute'>
+       <div className='absolute object-cover w-screen '>
        <img src='https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/67033404-2df8-42e0-a5a0-4c8288b4da2c/IN-en-20231120-popsignuptwoweeks-perspective_alpha_website_medium.jpg' alt='background'/>
        </div>
        <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black p-12 w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-md'>
