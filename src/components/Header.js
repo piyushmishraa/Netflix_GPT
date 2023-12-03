@@ -1,12 +1,18 @@
 import React from 'react'
-import {  signOut } from "firebase/auth";
+import {  onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import  { useEffect } from 'react'
+import { addUser, removeUser } from '../utils/userSlice';
+
+
 
 const Header = () => {
   const navigate=useNavigate();
   const user=useSelector(store => store.user);
+  const dispatch=useDispatch();
+  
  
 
   const handleSignOut=()=>{
@@ -22,6 +28,26 @@ const Header = () => {
 
   };
 
+  useEffect(()=>{
+        
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const {uid,email,displayName,photoURL}= user;
+      dispatch(addUser({
+        uid:uid,
+        email:email,
+        displayName:displayName,
+        photoURL:photoURL })); 
+       navigate("/browse") 
+        
+    } else {
+      dispatch(removeUser());
+      navigate('/');
+    }
+});
+
+},[]);
+
   
 
 
@@ -33,7 +59,7 @@ const Header = () => {
            <div className='flex'>
            <img className='w-8 h-8 my-6' src={user.photoURL} alt='usericon'/>
            <button className='mx-2 p-2 text-white font-bold' onClick={handleSignOut} >Sign Out</button>
-          </div>
+           </div>
          }
       </div>
       
