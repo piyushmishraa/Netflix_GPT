@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import  { useEffect } from 'react'
 import { addUser, removeUser } from '../utils/userSlice';
+import { netflixLogo, userLogo } from '../utils/constants';
 
 
 
@@ -30,7 +31,7 @@ const Header = () => {
 
   useEffect(()=>{
         
-     const unsubscribe=  onAuthStateChanged(auth, (user) => {
+     const unsubscribe =  onAuthStateChanged(auth, (user) => {
     if (user) {
       const {uid,email,displayName,photoURL}= user;
       dispatch(addUser({
@@ -53,11 +54,11 @@ const Header = () => {
 
   return (
     <div className='absolute z-10 w-screen bg-gradient-to-b from-black py-2 px-8 flex justify-between'>
-      <img className='w-44  ' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png ' alt='netflix'/>
+      <img className='w-44  ' src={netflixLogo} alt='netflix'/>
          {
            user && 
            <div className='flex'>
-           <img className='w-8 h-8 my-6' src={user.photoURL} alt='usericon'/>
+           <img className='w-8 h-8 my-6' src={userLogo} alt='usericon'/>
            <button className='mx-2 p-2 text-white font-bold' onClick={handleSignOut} >Sign Out</button>
            </div>
          }
