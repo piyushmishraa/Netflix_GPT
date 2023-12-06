@@ -8,5 +8,13 @@
  "d145efb0c8f5a9b7394937d31ea3178c"
 
  export const API_TOKEN=
-
 "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTQ1ZWZiMGM4ZjVhOWI3Mzk0OTM3ZDMxZWEzMTc4YyIsInN1YiI6IjY1NmYzMWU3NTY4NDYzMDEwZjg0OTc0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AmRPN7T1jV75Xwegfu_V3qZq5IM2zV9Q6rf_pbHSRFo"
+
+
+export const API_OPTIONS={
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTQ1ZWZiMGM4ZjVhOWI3Mzk0OTM3ZDMxZWEzMTc4YyIsInN1YiI6IjY1NmYzMWU3NTY4NDYzMDEwZjg0OTc0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AmRPN7T1jV75Xwegfu_V3qZq5IM2zV9Q6rf_pbHSRFo'
+    }
+  };
