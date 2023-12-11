@@ -3,7 +3,7 @@ import { API_OPTIONS } from '../utils/constants'
 
 const VideoPlayer = () => {
     const getTrailer= async(movieID)=>{
-        const data=await fetch('https://api.themoviedb.org/3/movie/897087/videos?language=en-US',API_OPTIONS)
+        const data=await fetch('https://api.themoviedb.org/3/movie/897087/videos?language=en-US',API_OPTIONS);
         const json= await data.json();
         
         
@@ -16,7 +16,15 @@ const VideoPlayer = () => {
         getTrailer();
     },[])
   return (
-    <div>VideoPlayer</div>
+    <div>VideoPlayer
+      <iframe width="560" height="315" src
+      ="https://www.youtube.com/embed/r_pUE7OcN8w?si=QFZJ7mh28pqMZhk7" 
+      title="YouTube video player"  
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      >
+
+      </iframe>
+    </div>
   )
 }
 
