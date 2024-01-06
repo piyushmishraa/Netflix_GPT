@@ -9,9 +9,9 @@ const MainContainer = () => {
     if(!movies) return
     
     const mainMovie  = movies[0];
-    console.log(mainMovie);
+   
   return (
-    <div  className='pt-40 px-14'>
+    <div  >
         <VideoTitle title={mainMovie.original_title}  description={mainMovie.overview}/>
         <VideoPlayer movieID={mainMovie.id}/>
         

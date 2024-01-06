@@ -12,7 +12,7 @@ const Browse = () => {
   useGetNowPlayingMovies();
  
   return (
-    <div>
+    <div className="">
     <Header/>
     <MainContainer/>
     <SecondaryContainer/>

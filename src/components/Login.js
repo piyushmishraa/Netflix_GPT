@@ -39,7 +39,7 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email.current.value , password.current.value)
       .then((userCredential) => {
        const user = userCredential.user;
-       console.log(user);
+       
         
        updateProfile(user, {
         displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/116213566?v=4"
@@ -90,7 +90,7 @@ const Login = () => {
 
   }
   return (
-    <div className=' '>
+    <div className=' w-screen  '>
        <Header/>
        <div className='absolute object-cover w-screen '>
        <img src='https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/67033404-2df8-42e0-a5a0-4c8288b4da2c/IN-en-20231120-popsignuptwoweeks-perspective_alpha_website_medium.jpg' alt='background'/>
