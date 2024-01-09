@@ -11,7 +11,7 @@ const MainContainer = () => {
     const mainMovie  = movies[0];
    
   return (
-    <div  >
+    <div className='w-screen aspect-video'  >
         <VideoTitle title={mainMovie.original_title}  description={mainMovie.overview}/>
         <VideoPlayer movieID={mainMovie.id}/>
         

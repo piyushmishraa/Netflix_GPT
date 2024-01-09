@@ -3,6 +3,10 @@ import MainContainer from './MainContainer';
 import Header from './Header';
 
 import useGetNowPlayingMovies from '../hooks/useGetNowPlayingMovies';
+import useGetPopularMovies from '../hooks/useGetPopularMovies';
+import useGetTrendingMovies from '../hooks/useGetTrendingMovies';
+import { addUpcomingMovies } from '../utils/movieSlice';
+import useGetUpcomingMovies from '../hooks/useGetUpcomingMovies';
 
 
 
@@ -10,6 +14,10 @@ import useGetNowPlayingMovies from '../hooks/useGetNowPlayingMovies';
 const Browse = () => {
 
   useGetNowPlayingMovies();
+  useGetPopularMovies();
+  useGetTrendingMovies();
+  useGetUpcomingMovies();
+
  
   return (
     <div className="">
