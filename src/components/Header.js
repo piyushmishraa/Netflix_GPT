@@ -57,11 +57,14 @@ const Header = () => {
     <div className=' absolute z-10 w-screen bg-gradient-to-b from-black py-2 px-8 flex justify-between  '>
       <img className='w-44  ' src={netflixLogo} alt='netflix'/>
          {
-           user && 
-           <div className='flex'>
-           <img className='w-8 h-8 my-6' src={userLogo} alt='usericon'/>
-           <button className='mx-2 p-2 text-white font-bold' onClick={handleSignOut} >Sign Out</button>
-           </div>
+           user && (
+            <div className='flex'>
+             <button className='py-1 px-2 m-5 bg-purple-800 text-white rounded-lg '>GPT Search</button> 
+            <img className='w-8 h-8 my-6' src={userLogo} alt='usericon'/>
+            <button className='mx-2 p-2 text-white font-bold' onClick={handleSignOut} >Sign Out</button>
+            </div>
+           )
+          
          }
       </div>
       
