@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import  { useEffect } from 'react'
 import { addUser, removeUser } from '../utils/userSlice';
 import { netflixLogo, userLogo } from '../utils/constants';
+import { toggleGptSearchView } from '../utils/gptslice';
 
 
 
@@ -50,6 +51,9 @@ const Header = () => {
    // eslint-disable-next-line react-hooks/exhaustive-deps
 },[]);
 
+const handlegptsearch=()=>{
+  dispatch(toggleGptSearchView());
+};
   
 
 
@@ -59,7 +63,7 @@ const Header = () => {
          {
            user && (
             <div className='flex'>
-             <button className='py-1 px-2 m-5 bg-purple-800 text-white rounded-lg '>GPT Search</button> 
+             <button className='py-1 px-2 m-5 bg-purple-800 text-white rounded-lg ' onClick={handlegptsearch}>GPT Search</button> 
             <img className='w-8 h-8 my-6' src={userLogo} alt='usericon'/>
             <button className='mx-2 p-2 text-white font-bold' onClick={handleSignOut} >Sign Out</button>
             </div>
