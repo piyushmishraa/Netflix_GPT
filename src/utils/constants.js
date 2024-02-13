@@ -15,7 +15,7 @@ export const API_OPTIONS={
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTQ1ZWZiMGM4ZjVhOWI3Mzk0OTM3ZDMxZWEzMTc4YyIsInN1YiI6IjY1NmYzMWU3NTY4NDYzMDEwZjg0OTc0ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AmRPN7T1jV75Xwegfu_V3qZq5IM2zV9Q6rf_pbHSRFo'
+      Authorization: 'Bearer '+process.env.REACT_APP_TMDB_KEY
     }
   };
 
@@ -26,3 +26,9 @@ export const API_OPTIONS={
   "https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/67033404-2df8-42e0-a5a0-4c8288b4da2c/IN-en-20231120-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
 
   export const language =[{identifier:"en",name:"English"},{identifier:"hindi",name:"Hindi"},{identifier:"spanish",name:"spanish"}]
+
+  export const openAI_KEY="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";
+  
+  export const openAI_KEY_Rahul="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";
+
+  export const openAI_KEY_Second=process.env.REACT_APP_openAI_KEY_Second;
